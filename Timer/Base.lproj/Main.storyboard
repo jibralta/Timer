@@ -24,12 +24,7 @@
                                     <constraint firstAttribute="height" constant="44" id="zhs-6n-v1P"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="App Name" id="XaF-VW-ar8">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="Alh-xi-cYK"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="obB-NJ-kEV">
-                                            <color key="tintColor" red="0.43092489242553711" green="0.76211059093475342" blue="0.075977049767971039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="TIMER" id="XaF-VW-ar8"/>
                                 </items>
                             </navigationBar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1to-X7-3Ml">
@@ -38,13 +33,45 @@
                                     <constraint firstAttribute="height" constant="44" id="lcC-bM-ZcY"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem systemItem="organize" id="7Pm-cE-nVQ"/>
+                                    <barButtonItem style="plain" id="rh1-Sa-vQ7">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="r6G-WU-Jui">
+                                            <rect key="frame" x="16" y="7" width="47" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="START"/>
+                                            <connections>
+                                                <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5G2-Zx-CBs"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="nDi-gk-ur1"/>
-                                    <barButtonItem systemItem="bookmarks" id="rGg-pz-ac3"/>
+                                    <barButtonItem systemItem="pause" id="rGg-pz-ac3">
+                                        <connections>
+                                            <action selector="pauseButton:" destination="BYZ-38-t0r" id="A3f-kn-7Bm"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="6XA-Yx-6Iy"/>
-                                    <barButtonItem systemItem="stop" id="nBw-FE-h4T"/>
+                                    <barButtonItem style="plain" id="Di6-lV-JfD">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PjQ-OP-0Kt">
+                                            <rect key="frame" x="321" y="7" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="RESET"/>
+                                            <connections>
+                                                <action selector="resetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fcr-9U-TVE"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dV-Nf-emJ">
+                                <rect key="frame" x="115" y="255" width="144" height="157"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="157" id="agz-pn-aA1"/>
+                                    <constraint firstAttribute="width" constant="144" id="rkF-Pa-4B9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="75"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -52,15 +79,24 @@
                             <constraint firstAttribute="trailingMargin" secondItem="1to-X7-3Ml" secondAttribute="trailing" constant="-20" id="5eB-sI-iQu"/>
                             <constraint firstItem="uT3-xR-hNg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="b12-YB-Nbs"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1to-X7-3Ml" secondAttribute="bottom" id="gR8-8i-V8p"/>
+                            <constraint firstItem="9dV-Nf-emJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gl0-FF-qhZ"/>
                             <constraint firstItem="1to-X7-3Ml" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="mCq-jz-OTD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uT3-xR-hNg" secondAttribute="trailing" constant="-20" id="xgN-g0-ouL"/>
+                            <constraint firstItem="9dV-Nf-emJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yfT-rg-Mhh"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="pauseButton" destination="1to-X7-3Ml" id="ifp-yi-63L"/>
+                        <outlet property="resetButton" destination="PjQ-OP-0Kt" id="35J-yv-Ao2"/>
+                        <outlet property="startButton" destination="r6G-WU-Jui" id="igS-iA-dCU"/>
+                        <outlet property="timeLabel" destination="9dV-Nf-emJ" id="aqr-Fz-6tG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="304.5" y="278.5"/>
         </scene>
     </scenes>
 </document>
